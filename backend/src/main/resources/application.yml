@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: ran-digital-twin-api
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/ran_twin}
+    username: ${DATABASE_USERNAME:ran_admin}
+    password: ${DATABASE_PASSWORD:ran_dev_password}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+server:
+  port: ${PORT:8080}
+
+app:
+  cors:
+    allowed-origin: ${WEB_ORIGIN:http://localhost:3000}
+
